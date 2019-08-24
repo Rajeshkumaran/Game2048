@@ -1,0 +1,70 @@
+{
+  "name": "fullstackjs",
+  "version": "1.0.0",
+  "description": "To develop an 2048 game using reactjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel-node server.js",
+    "dev-bundle": "webpack -wd",
+    "start-nodemon": "nodemon --exec babel-node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rajeshkumaran/Game2048.git"
+  },
+  "author": "Rajesh K",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rajeshkumaran/Game2048/issues"
+  },
+  "homepage": "https://github.com/Rajeshkumaran/Game2048#readme",
+  "dependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "axios": "^0.18.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-transform-assets": "^1.0.2",
+    "babel-polyfill": "6.26.0",
+    "body-parser": "^1.18.3",
+    "emotion": "^9.2.12",
+    "emotion-server": "^9.2.12",
+    "emotion-theming": "^9.2.9",
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.13.0",
+    "express": "^4.16.4",
+    "file-loader": "^4.0.0",
+    "mongodb": "^3.2.3",
+    "nodemon": "^1.19.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-emotion": "^9.2.12",
+    "react-ga": "^2.6.0",
+    "url-loader": "^2.0.1",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.13.0",
+    "file-loader": "^4.0.0",
+    "nodemon": "^1.19.0",
+    "url-loader": "^2.0.1",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.2"
+  }
+}
