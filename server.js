@@ -7,7 +7,7 @@ import express from "express";
 const server = express();
 
 server.get("/", (req, res) => {
-  const Html = renderStylesToString(renderToString(<App data={[]} />));
+  const Html = renderStylesToString(renderToString(<App isServerside />));
   res.send(`
     <!DocType html>
     <html>

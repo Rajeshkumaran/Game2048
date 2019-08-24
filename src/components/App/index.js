@@ -4,6 +4,6 @@ import "../../../globalStyles";
 export default class App extends React.Component {
   render() {
     return (
-      <Game/>
+      <Game {...this.props}/>
     )}
 }

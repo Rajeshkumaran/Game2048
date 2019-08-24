@@ -1,33 +1,23 @@
 import React from 'react';
 import styled from 'react-emotion';
 import Box from '../Box';
+import Controls from '../Controls';
 const Layout = styled('div')`
   display: flex;
   flex-direction: column;
   max-width: 300px;
+  margin:50px;
 `;
 const Table = styled('div')`
-  > div:last-child {
-    border-bottom: 1px solid orange;
-  }
+  background:#959292;
+  max-width:300px;
+  max-height:300px;
 `;
 const EachRow = styled('div')`
   display: flex;
-  border-top: 1px solid orange;
-  > span:last-child {
-    border-right: 1px solid orange;
-  }
+  padding:2px;
 `;
-const Controls = styled('div')`
-  border: 1px solid red;
-  padding: 10px;
-  display: flex;
-`;
-const Button = styled('button')`
-  flex: 1;
-  border: 1px solid red;
-  padding: 5px;
-`;
+
 
 const GameOver = styled('div')`
     display: flex;
@@ -67,10 +57,10 @@ export default class Game2048 extends React.Component {
   }
 
   generateBoxes = values => {
-    return values.map((row, rindex) => (
+    return values.map((row) => (
       <EachRow>
-        {row.map((column, cindex) => (
-          <Box value={column} id={`${rindex}-${cindex}`} />
+        {row.map((column) => (
+          <Box value={column} />
         ))}
       </EachRow>
     ));
@@ -315,6 +305,7 @@ export default class Game2048 extends React.Component {
     return { rowNo, columnNo };
   };
   placeInEmptyPosition(values = []) {
+      const possibleValues = [2,4];
     let emptyPlaces = this.findEmptyPlaces(values);
     if (emptyPlaces.length === 0) {
       this.setState({
@@ -323,23 +314,26 @@ export default class Game2048 extends React.Component {
     }
     let emptyPlacesIndexFixed = parseInt(Math.random() * emptyPlaces.length);
     let { i = null, j = null } = emptyPlaces[emptyPlacesIndexFixed] || {};
-    if (i && j) values[i][j] = 2;
+    let pv = possibleValues[parseInt(Math.random()*2)];
+    if (i && j && pv) {
+        
+        values[i][j] =pv ;
+    }
   }
   render() {
-    return (
+      const {isServerside = false} = this.props;
+    return  isServerside ? 
+      <div>
+          Wait for the game 2048
+        </div> :
       <Layout>
         {this.state.gameOver ? (
           <GameOver>Game over</GameOver>
         ) : (
           <Table>{this.generateBoxes(this.state.values)}</Table>
         )}
-        <Controls>
-          <Button onClick={this.moveLeft}> LEFT </Button>
-          <Button onClick={this.moveRight}> RIGHT </Button>
-          <Button onClick={this.moveUp}>UP</Button>
-          <Button onClick={this.moveDown}>DOWN</Button>
-        </Controls>
+        <Controls moveDown={this.moveDown} moveLeft={this.moveLeft} moveRight={this.moveRight} moveUp={this.moveUp}/>
       </Layout>
-    );
+        
   }
 }
